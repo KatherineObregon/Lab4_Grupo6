@@ -39,8 +39,10 @@ public class EmployeeController {
     }
 
     @GetMapping("/new")
-    public String nuevoEmployeeForm() {
-        //COMPLETAR
+    public String nuevoEmployeeForm(@ModelAttribute("employees") Employees employees, Model model) {
+        model.addAttribute("listaJobs", jobsRepository.findAll());
+        model.addAttribute("listaJefes", employeesRepository.findAll());
+        model.addAttribute("listaDepartments", departmentsRepository.findAll());
         return "employee/Frm";
     }
 
@@ -56,15 +58,15 @@ public class EmployeeController {
             return "employee/Frm";
         }else {
 
-            if (employees.getEmployeeid() == 0) {
+            if (employees.getEmployee_id() == 0) {
                 attr.addFlashAttribute("msg", "Empleado creado exitosamente");
-                employees.setHiredate(new Date());
+                employees.setHire_date(new Date());
                 employeesRepository.save(employees);
                 return "redirect:/employee";
             } else {
 
                 try {
-                    employees.setHiredate(new SimpleDateFormat("yyyy-MM-dd").parse(fechaContrato));
+                    employees.setHire_date(new SimpleDateFormat("yyyy-MM-dd").parse(fechaContrato));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -77,9 +79,21 @@ public class EmployeeController {
     }
 
     @GetMapping("/edit")
-    public String editarEmployee() {
+    public String editarEmployee(@ModelAttribute("employees") Employees employees, Model model, @RequestParam("id") int id) {
+        Optional<Employees> optEmployees = employeesRepository.findById(id);
+        if (optEmployees.isPresent()) {
+            model.addAttribute("listaJobs", jobsRepository.findAll());
+            model.addAttribute("listaJefes", employeesRepository.findAll());
+            model.addAttribute("listaDepartments", departmentsRepository.findAll());
+            return "employee/Frm";
+        }else{
+            return "redirect:/employee";
+        }
 
-        //COMPLETAR
+
+
+
+
     }
 
     @GetMapping("/delete")
@@ -100,7 +114,7 @@ public class EmployeeController {
     @PostMapping("/search")
     public String buscar (){
 
-        //COMPLETAR
+        return "nada";
     }
 
 }
