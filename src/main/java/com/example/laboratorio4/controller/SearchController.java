@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/Search")
@@ -32,15 +33,16 @@ public class SearchController {
     }
 
     @PostMapping("/busqueda")
-    public String buscar (@RequestParam("textBuscador") String textBuscador, Model model){
+    public String buscar (@RequestParam("textBuscador") String textBuscador,
+                          RedirectAttributes attr, Model model){
         int salary = -1;
         try{
             salary = Integer.parseInt(textBuscador);
         }catch (NumberFormatException e){
         }
         if(salary==-1){
-            model.addAttribute("error", true);
-            model.addAttribute("texto", textBuscador);
+            attr.addFlashAttribute("error", "Debe ingresar un número");
+            attr.addFlashAttribute("texto", textBuscador);
             return "redirect:/Search/Salario";
         }else{
             model.addAttribute("listaEmpleadosMayorSalario", historyRepository.buscarInputBuscador(salary));

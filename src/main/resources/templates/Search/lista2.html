@@ -21,12 +21,10 @@
                 <a class="btn btn-outline-danger" th:href="@{/Search/Salario}" >Limpiar</a>
                 <a class="btn btn-primary" type="submit" th:href="@{/Search/Salario}" >Regresar</a>
             </div>
-
         </div>
 
     </form>
-
-
+    <div th:if="${error != null}" th:text="${error}" class="alert alert-danger" role="alert"></div>
     <table class="table" align="left">
         <thead>
         <th >
