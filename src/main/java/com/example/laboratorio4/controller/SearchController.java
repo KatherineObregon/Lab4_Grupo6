@@ -51,15 +51,15 @@ public class SearchController {
         }
     }
 
-    @GetMapping(value = "/Filtro2")//falta implementar
+    @GetMapping(value = "/Filtro2")
     public String reporteSalarioMaximoPorDepar (Model model){
         model.addAttribute("reporteSalarioMaximoPorDepar", departmentsRepository.reporteSalarioMaximoPorDepar());
         return "/Search/salario";
     }
 
-    @GetMapping("/listar")//falta implementar
+    @GetMapping("/listar")//
     public String listarEmpleadoDep(@RequestParam("depId") int depId,Model model) {
-        model.addAttribute("listarEmpleadoDep", employeesRepository.findByDepartaments(depId));
+        model.addAttribute("listarEmpleadoDep", employeesRepository.findByDepartment_id(depId));
         return "/Search/lista3";
     }
 
