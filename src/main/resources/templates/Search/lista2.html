@@ -14,12 +14,14 @@
     <form class="input-group mb-lg-3" method="post" th:action="@{/Search/busqueda}">                <!-- COMPLETAR -->
         <div class=" input-group ">
             <div CLASS="col-9 justify-content-around">
-                <input type="text" class="form-control"  th:value="${texto}" placeholder="Salario a buscar" name="textBuscador">
+                <input type="text" class="form-control" th:if="${error!=null}"
+                       th:value="${texto}" placeholder="Salario a buscar" name="textBuscador">
+
             </div>
             <div CLASS="col-auto justify-content-end">
                 <button class="btn btn-outline-primary" type="submit">Buscar</button>
                 <a class="btn btn-outline-danger" th:href="@{/Search/Salario}" >Limpiar</a>
-                <a class="btn btn-primary" type="submit" th:href="@{/Search/Salario}" >Regresar</a>
+                <a class="btn btn-primary" type="submit" th:href="@{/Search}" >Regresar</a>
             </div>
 
         </div>

@@ -33,8 +33,8 @@
             <td th:text="${historial.getFirst_name()}"></td>
             <td th:text="${historial.getLast_name()}"></td>
             <td th:text="${historial.getJob_title()}"></td>
-            <td th:text="${historial.getStart_date()}"></td>
-            <td th:text="${historial.getEnd_date()}"></td>
+            <td th:text="${historial.getStart_date().substring(0,10)}"></td>
+            <td th:text="${historial.getEnd_date().substring(0,10)}"></td>
             <td th:text="${historial.getAnios()}"></td>
             <td th:text="${historial.getMeses()}"></td>
         </tr>
