@@ -15,4 +15,12 @@ public interface HistoryRepository extends JpaRepository<History,Integer> {
             nativeQuery = true)
     List<History> listaEmpleadosMayorSalario();
 
+
+    @Query(value = "SELECT h.*, j.max_salary FROM job_history h, jobs j \n" +
+            "WHERE h.employee_id NOT IN (SELECT max(salary) FROM employees)\n" +
+            "AND j.max_salary= ?1\n" +
+            "group by h.job_history_id;",
+            nativeQuery = true)
+    List<History> buscarInputBuscador(String textBuscador);
+
 }
