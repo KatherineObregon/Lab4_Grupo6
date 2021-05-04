@@ -14,7 +14,7 @@
     <form class="input-group mb-lg-3" method="post" th:action="@{/Search/busqueda}">                <!-- COMPLETAR -->
         <div class=" input-group ">
             <div CLASS="col-9 justify-content-around">
-                <input type="text" class="form-control" th:if="${error!=null}"
+                <input type="text" class="form-control"
                        th:value="${texto}" placeholder="Salario a buscar" name="textBuscador">
 
             </div>
@@ -52,7 +52,7 @@
             <td th:text="${history.employee.last_name}">Otto</td>
             <td th:text="${history.hiredate.substring(0,10)}">Otto</td>
             <td th:text="${history.enddate.substring(0,10)}">Otto</td>
-            <td th:text="${history.job.jobtitle}">@mdo</td>
+            <td th:text="${history.employee.jobs.jobtitle}">@mdo</td>
         </tr>
         </tbody>
     </table>
