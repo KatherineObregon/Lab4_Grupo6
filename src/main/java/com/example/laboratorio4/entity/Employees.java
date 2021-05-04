@@ -1,10 +1,7 @@
 package com.example.laboratorio4.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -47,6 +44,7 @@ public class Employees {
 
 
     @NotNull(message = "Este campo es obligatorio")
+    @Positive(message = "Tiene que ser mayor que 0")
     private BigDecimal salary;
     private  BigDecimal commission_pct;
     @ManyToOne

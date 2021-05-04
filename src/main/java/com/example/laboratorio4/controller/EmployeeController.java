@@ -82,6 +82,7 @@ public class EmployeeController {
     public String editarEmployee(@ModelAttribute("employees") Employees employees, Model model, @RequestParam("id") int id) {
         Optional<Employees> optEmployees = employeesRepository.findById(id);
         if (optEmployees.isPresent()) {
+            model.addAttribute("employees", optEmployees.get());
             model.addAttribute("listaJobs", jobsRepository.findAll());
             model.addAttribute("listaJefes", employeesRepository.findAll());
             model.addAttribute("listaDepartments", departmentsRepository.findAll());

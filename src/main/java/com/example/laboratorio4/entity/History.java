@@ -13,14 +13,14 @@ public class History {
     private int id;
     @ManyToOne
     @JoinColumn(name = "employee_id")
-    private Employees employeeid;
+    private Employees employee;
     @Column(name = "start_date")
-    private Date hiredate;
+    private String hiredate;
     @Column(name = "end_date",nullable = false)
-    private Date enddate;
+    private String enddate;
     @ManyToOne
     @JoinColumn(name = "job_id")
-    private Jobs jobid;
+    private Jobs job;
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Departments departmentid;
@@ -33,12 +33,12 @@ public class History {
         this.id = id;
     }
 
-    public Employees getEmployeeid() {
-        return employeeid;
+    public Employees getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeid(Employees employeeid) {
-        this.employeeid = employeeid;
+    public void setEmployee(Employees employeeid) {
+        this.employee = employeeid;
     }
 
     public int getId() {
@@ -49,28 +49,28 @@ public class History {
         this.id = id;
     }
 
-    public Date getHiredate() {
+    public String getHiredate() {
         return hiredate;
     }
 
-    public void setHiredate(java.util.Date hiredate) {
-        this.hiredate = (Date) hiredate;
+    public void setHiredate(String hiredate) {
+        this.hiredate = hiredate;
     }
 
-    public Date getEnddate() {
+    public String getEnddate() {
         return enddate;
     }
 
-    public void setEnddate(Date enddate) {
+    public void setEnddate(String enddate) {
         this.enddate = enddate;
     }
 
-    public Jobs getJobid() {
-        return jobid;
+    public Jobs getJob() {
+        return job;
     }
 
-    public void setJobid(Jobs jobid) {
-        this.jobid = jobid;
+    public void setJob(Jobs jobid) {
+        this.job = jobid;
     }
 
     public Departments getDepartmentid() {

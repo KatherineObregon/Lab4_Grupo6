@@ -14,20 +14,19 @@
     <form class="input-group mb-lg-3" method="post" th:action="@{/Search/busqueda}">                <!-- COMPLETAR -->
         <div class=" input-group ">
             <div CLASS="col-9 justify-content-around">
-                <input type="text" class="form-control"  th:value="${texto}" placeholder="Salario a buscar" name="textBuscador">
+                <input type="text" class="form-control"
+                       th:value="${texto}" placeholder="Salario a buscar" name="textBuscador">
+
             </div>
             <div CLASS="col-auto justify-content-end">
                 <button class="btn btn-outline-primary" type="submit">Buscar</button>
                 <a class="btn btn-outline-danger" th:href="@{/Search/Salario}" >Limpiar</a>
-                <a class="btn btn-primary" type="submit" th:href="@{/Search/Salario}" >Regresar</a>
-
+                <a class="btn btn-primary" type="submit" th:href="@{/Search}" >Regresar</a>
             </div>
-
         </div>
 
     </form>
-
-
+    <div th:if="${error != null}" th:text="${error}" class="alert alert-danger" role="alert"></div>
     <table class="table" align="left">
         <thead>
         <th >
@@ -48,12 +47,12 @@
         </thead>
         <tbody>
 
-        <tr th:each="history, v : ${listaHistory}">
-            <td th:text="${history.employees.first_name}">Mark</td>
-            <td th:text="${history.employees.last_name}">Otto</td>
-            <td th:text="${history.start_date.substring(0,10) }">Otto</td>
-            <td th:text="${history.end_date.substring(0,10) }">Otto</td>
-            <td th:text="${history.job.job_title}">@mdo</td>
+        <tr th:each="history, v : ${listaEmpleadosMayorSalario}">
+            <td th:text="${history.employee.first_name}">Mark</td>
+            <td th:text="${history.employee.last_name}">Otto</td>
+            <td th:text="${history.hiredate.substring(0,10)}">Otto</td>
+            <td th:text="${history.enddate.substring(0,10)}">Otto</td>
+            <td th:text="${history.employee.jobs.jobtitle}">@mdo</td>
         </tr>
         </tbody>
     </table>
