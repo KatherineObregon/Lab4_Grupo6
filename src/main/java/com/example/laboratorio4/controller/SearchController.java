@@ -17,6 +17,7 @@ public class SearchController {
     @GetMapping(value = {"/Salario"})
     public String listaEmpleadosMayorSalrio (){
 
+
       //COMPLETAR
         return "Search/lista2";
     }
@@ -24,11 +25,13 @@ public class SearchController {
     @PostMapping("/busqueda")
     public String buscar (){
 
+
         //COMPLETAR
     }
 
     @GetMapping(value = "/Filtro2")
     public String cantidadEmpleadosPorPais (){
+
 
         //COMPLETAR
         return "/Search/salario";
@@ -36,6 +39,7 @@ public class SearchController {
 
     @GetMapping("/listar")
     public String listarEmpleadoDep() {
+
         //COMPLETAR
         return "/Search/lista3";
 
