@@ -39,11 +39,7 @@ public class SearchController {
     }
 
 
-    @GetMapping(value = "/Filtro2")//NO PIDEN
-    public String cantidadEmpleadosPorPais (Model model){
-        model.addAttribute("cantidadEmpleadosPorPais", employeesRepository.cantidadEmpleadosPorPais());
-        return "/Search/salario";
-    }
+
 
 
     @GetMapping(value = "/Filtro2")//falta implementar

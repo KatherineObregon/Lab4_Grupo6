@@ -14,11 +14,11 @@ public interface EmployeesRepository extends JpaRepository<Employees,Integer> {
 
 
 
-    @Query(value = "",/////falta query pero no piden
+    @Query(value = "select*from job_history",/////falta query pero no piden
             nativeQuery = true)
     List<History> cantidadEmpleadosPorPais();
 
-    @Query(value = "",/////falta query
+    @Query(value = "select*from job_history",/////falta query
             nativeQuery = true)
     List<History> listarEmpleadoDep();
 

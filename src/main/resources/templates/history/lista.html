@@ -28,14 +28,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="historia : ${listaHistorial}">
+        <tr th:each="historial : ${listaHistorial}">
         <!-- COMPLETAR-->
-            <td th:text="${historia}"></td>
-            <td th:text="${employee.first_name}"></td>
-            <td th:text="${historia}"></td>
-            <td th:text="${employee.jobs.jobtitle}"></td>
-            <td th:text="${employee.departaments.getDepartmentname()}"></td>
-            <td th:text="${employee.departaments.locationid.getCity()}"></td>
+            <td th:text="${historial.getFirst_name()}"></td>
+            <td th:text="${historial.getLast_name()}"></td>
+            <td th:text="${historial.getJob_title()}"></td>
+            <td th:text="${historial.getStart_date()}"></td>
+            <td th:text="${historial.getEnd_date()}"></td>
+            <td th:text="${historial.getAnios()}"></td>
+            <td th:text="${historial.getMeses}"></td>
         </tr>
         </tbody>
     </table>
