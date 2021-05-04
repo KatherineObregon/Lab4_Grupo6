@@ -31,17 +31,17 @@ public class SearchController {
         return "Search/lista2";
     }
 
-    @PostMapping("/busqueda") //falta validar que ingrese numeros
+    @PostMapping("/busqueda")
     public String buscar (@RequestParam("textBuscador") String textBuscador, Model model){
         int salary = -1;
         try{
             salary = Integer.parseInt(textBuscador);
         }catch (NumberFormatException e){
-
         }
         if(salary==-1){
             model.addAttribute("error", true);
-            return "redirect:/Salario";
+            model.addAttribute("texto", textBuscador);
+            return "redirect:/Search/Salario";
         }else{
             model.addAttribute("listaEmpleadosMayorSalario", historyRepository.buscarInputBuscador(salary));
             model.addAttribute("texto", textBuscador);

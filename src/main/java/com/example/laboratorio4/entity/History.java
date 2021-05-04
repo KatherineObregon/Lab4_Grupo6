@@ -15,9 +15,9 @@ public class History {
     @JoinColumn(name = "employee_id")
     private Employees employee;
     @Column(name = "start_date")
-    private Date hiredate;
+    private String hiredate;
     @Column(name = "end_date",nullable = false)
-    private Date enddate;
+    private String enddate;
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Jobs job;
@@ -49,19 +49,19 @@ public class History {
         this.id = id;
     }
 
-    public Date getHiredate() {
+    public String getHiredate() {
         return hiredate;
     }
 
-    public void setHiredate(java.util.Date hiredate) {
-        this.hiredate = (Date) hiredate;
+    public void setHiredate(String hiredate) {
+        this.hiredate = hiredate;
     }
 
-    public Date getEnddate() {
+    public String getEnddate() {
         return enddate;
     }
 
-    public void setEnddate(Date enddate) {
+    public void setEnddate(String enddate) {
         this.enddate = enddate;
     }
 
