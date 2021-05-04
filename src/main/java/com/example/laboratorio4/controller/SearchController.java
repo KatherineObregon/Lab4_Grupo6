@@ -47,7 +47,7 @@ public class SearchController {
 
 
     @GetMapping(value = "/Filtro2")//falta implementar
-    public String reporteSalarioMaximoPorDepar (Model model){//falta query
+    public String reporteSalarioMaximoPorDepar (Model model){
         model.addAttribute("reporteSalarioMaximoPorDepar", departmentsRepository.reporteSalarioMaximoPorDepar());
         return "/Search/salario";
     }
