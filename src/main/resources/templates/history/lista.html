@@ -17,11 +17,25 @@
         <thead>
         <tr>
             <!-- COMPLETAR-->
+            <td>Nombres</td>
+            <td>Apellidos</td>
+            <td>Cargo</td>
+            <td>Fecha límite</td>
+            <td>Fecha inicio</td>
+            <td>Años trabajados</td>
+            <td>Meses trabajados</td>
+
         </tr>
         </thead>
         <tbody>
         <tr th:each="historia : ${listaHistorial}">
         <!-- COMPLETAR-->
+            <td th:text="${historia}"></td>
+            <td th:text="${employee.first_name}"></td>
+            <td th:text="${employee.last_name}"></td>
+            <td th:text="${employee.jobs.jobtitle}"></td>
+            <td th:text="${employee.departaments.getDepartmentname()}"></td>
+            <td th:text="${employee.departaments.locationid.getCity()}"></td>
         </tr>
         </tbody>
     </table>
