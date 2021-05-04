@@ -1,6 +1,7 @@
 package com.example.laboratorio4.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,8 +15,10 @@ public class Employees {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int employee_id;
 
+    @Column
     @NotNull(message = "Este campo es obligatorio")
     @NotBlank(message = "Este campo es obligatorio")
     private String first_name;
@@ -26,6 +29,7 @@ public class Employees {
     private String last_name;
 
     @Column(nullable = false)
+    @Email(message = "Debe tener el formato: nombre@correo.com")
     @NotNull(message = "Este campo es obligatorio")
     @NotBlank(message = "Este campo es obligatorio")
     private String email;
@@ -41,8 +45,8 @@ public class Employees {
     @JoinColumn(name = "job_id", nullable = false)
     private Jobs jobs;
 
+
     @NotNull(message = "Este campo es obligatorio")
-    @NotBlank(message = "Este campo es obligatorio")
     private BigDecimal salary;
     private  BigDecimal commission_pct;
     @ManyToOne

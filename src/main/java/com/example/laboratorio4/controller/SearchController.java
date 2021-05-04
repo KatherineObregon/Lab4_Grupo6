@@ -24,7 +24,7 @@ public class SearchController {
     @PostMapping("/busqueda")
     public String buscar (){
 
-        //COMPLETAR
+        return "nada";
     }
 
     @GetMapping(value = "/Filtro2")
