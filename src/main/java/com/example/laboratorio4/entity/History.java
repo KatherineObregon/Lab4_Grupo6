@@ -13,14 +13,14 @@ public class History {
     private int id;
     @ManyToOne
     @JoinColumn(name = "employee_id")
-    private Employees employeeid;
+    private Employees employee;
     @Column(name = "start_date")
     private Date hiredate;
     @Column(name = "end_date",nullable = false)
     private Date enddate;
     @ManyToOne
     @JoinColumn(name = "job_id")
-    private Jobs jobid;
+    private Jobs job;
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Departments departmentid;
@@ -33,12 +33,12 @@ public class History {
         this.id = id;
     }
 
-    public Employees getEmployeeid() {
-        return employeeid;
+    public Employees getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeid(Employees employeeid) {
-        this.employeeid = employeeid;
+    public void setEmployee(Employees employeeid) {
+        this.employee = employeeid;
     }
 
     public int getId() {
@@ -65,12 +65,12 @@ public class History {
         this.enddate = enddate;
     }
 
-    public Jobs getJobid() {
-        return jobid;
+    public Jobs getJob() {
+        return job;
     }
 
-    public void setJobid(Jobs jobid) {
-        this.jobid = jobid;
+    public void setJob(Jobs jobid) {
+        this.job = jobid;
     }
 
     public Departments getDepartmentid() {

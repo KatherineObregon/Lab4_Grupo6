@@ -10,17 +10,17 @@ import java.util.List;
 @Repository
 public interface HistoryRepository extends JpaRepository<History,Integer> {
 
-    @Query(value = "SELECT * FROM job_history\n" +
-            "WHERE employee_id NOT IN (SELECT max(salary) FROM employees);",
+    @Query(value = "select jh.* from job_history jh\n" +
+            "left join employees e on jh.employee_id=e.employee_id\n" +
+            "left join jobs j on jh.job_id=j.job_id where e.salary > 8000;",
             nativeQuery = true)
     List<History> listaEmpleadosMayorSalario();
 
 
-    @Query(value = "SELECT h.*, j.max_salary FROM job_history h, jobs j \n" +
-            "WHERE h.employee_id NOT IN (SELECT max(salary) FROM employees)\n" +
-            "AND j.max_salary= ?1\n" +
-            "group by h.job_history_id;",
+    @Query(value = "select jh.* from job_history jh\n" +
+            "left join employees e on jh.employee_id=e.employee_id\n" +
+            "left join jobs j on jh.job_id=j.job_id where e.salary > 8000 and e.salary = ?1",
             nativeQuery = true)
-    List<History> buscarInputBuscador(String textBuscador);
+    List<History> buscarInputBuscador(int salary);
 
 }

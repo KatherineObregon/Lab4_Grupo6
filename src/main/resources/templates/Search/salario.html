@@ -33,11 +33,12 @@
         </thead>
         <tbody>
         <tr th:each="departamento : ${reporteSalarioMaximoPorDepar}">
-            <td th:text="${departamento.getId()}">1</td>
-            <td th:text="${departamento.getDepartmentname()}">Mark</td>
-            <td th:text="${departamento.getLocationid}">Otto</td>
+            <td th:text="${departamento.getDepartment_id()}">1</td>
+            <td th:text="${departamento.getDepartment_name()}">Mark</td>
+            <td th:text="${departamento.getPromedio()}">Otto</td>
             <td>
-                <button class="btn btn-primary" type="submit" th:href="@{/Search/Listar}" >Info</button>
+                <a class="btn btn-primary"
+                   th:href="@{'/Search/Listar?depId='+${departamento.getDepartment_id()}">Info</a>
             </td>
         </tr>
         </tbody>

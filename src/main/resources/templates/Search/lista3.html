@@ -46,7 +46,8 @@
                     <td th:text="${employee.getJobs().getJobtitle()}">Otto</td>
                     <td th:text="${employee.getSalary()}">@mdo</td>
                     <td>
-                        <button class="btn btn-primary" type="submit">Editar</button>
+                        <a class="btn btn-primary"
+                           th:href="@{'/employee/edit?id='+${employee.employee_id}}" >Editar</a>
                     </td>
 
 

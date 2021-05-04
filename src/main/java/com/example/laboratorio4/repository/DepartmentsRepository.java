@@ -1,8 +1,8 @@
 package com.example.laboratorio4.repository;
 
+import com.example.laboratorio4.dtos.MaxSalaryDepartDto;
 import com.example.laboratorio4.entity.Departments;
 
-import com.example.laboratorio4.entity.History;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.data.jpa.repository.Query;
@@ -18,5 +18,5 @@ public interface DepartmentsRepository extends JpaRepository<Departments,Integer
             "on e.department_id = d.department_id\n" +
             "group by e.department_id",
             nativeQuery = true)
-    List<History> reporteSalarioMaximoPorDepar();
+    List<MaxSalaryDepartDto> reporteSalarioMaximoPorDepar();
 }

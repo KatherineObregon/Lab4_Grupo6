@@ -20,7 +20,6 @@
                 <button class="btn btn-outline-primary" type="submit">Buscar</button>
                 <a class="btn btn-outline-danger" th:href="@{/Search/Salario}" >Limpiar</a>
                 <a class="btn btn-primary" type="submit" th:href="@{/Search/Salario}" >Regresar</a>
-
             </div>
 
         </div>
@@ -48,12 +47,12 @@
         </thead>
         <tbody>
 
-        <tr th:each="history, v : ${listaHistory}">
-            <td th:text="${history.employees.first_name}">Mark</td>
-            <td th:text="${history.employees.last_name}">Otto</td>
-            <td th:text="${history.start_date.substring(0,10) }">Otto</td>
-            <td th:text="${history.end_date.substring(0,10) }">Otto</td>
-            <td th:text="${history.job.job_title}">@mdo</td>
+        <tr th:each="history, v : ${listaEmpleadosMayorSalario}">
+            <td th:text="${history.employee.first_name}">Mark</td>
+            <td th:text="${history.employee.last_name}">Otto</td>
+            <td th:text="${history.hiredate.substring(0,10)}">Otto</td>
+            <td th:text="${history.enddate.substring(0,10)}">Otto</td>
+            <td th:text="${history.job.jobtitle}">@mdo</td>
         </tr>
         </tbody>
     </table>

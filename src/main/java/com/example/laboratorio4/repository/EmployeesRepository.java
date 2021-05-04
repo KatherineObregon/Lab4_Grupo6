@@ -18,9 +18,7 @@ public interface EmployeesRepository extends JpaRepository<Employees,Integer> {
             nativeQuery = true)
     List<History> cantidadEmpleadosPorPais();
 
-    @Query(value = "",/////falta query
-            nativeQuery = true)
-    List<History> listarEmpleadoDep();
+    List<Employees> findByDepartment_id(int depId);
 
     @Query(value = "select e.first_name, e.last_name, j.job_title, jh.start_date, jh.end_date,\n" +
             "floor(DATEDIFF(jh.end_date, jh.start_date)/365) as `anios`,\n" +

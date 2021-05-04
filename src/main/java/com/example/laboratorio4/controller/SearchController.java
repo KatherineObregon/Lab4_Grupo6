@@ -32,19 +32,22 @@ public class SearchController {
     }
 
     @PostMapping("/busqueda") //falta validar que ingrese numeros
-    public String buscar (@RequestParam("textBuscador") String textBuscador, Model model){ //falta query
-        model.addAttribute("listaEmpleadosMayorSalario", historyRepository.buscarInputBuscador(textBuscador));
-        model.addAttribute("texto", textBuscador);
-        return "Search/lista2";
+    public String buscar (@RequestParam("textBuscador") String textBuscador, Model model){
+        int salary = -1;
+        try{
+            salary = Integer.parseInt(textBuscador);
+        }catch (NumberFormatException e){
+
+        }
+        if(salary==-1){
+            model.addAttribute("error", true);
+            return "redirect:/Salario";
+        }else{
+            model.addAttribute("listaEmpleadosMayorSalario", historyRepository.buscarInputBuscador(salary));
+            model.addAttribute("texto", textBuscador);
+            return "Search/lista2";
+        }
     }
-
-
-    @GetMapping(value = "/Filtro2")//NO PIDEN
-    public String cantidadEmpleadosPorPais (Model model){
-        model.addAttribute("cantidadEmpleadosPorPais", employeesRepository.cantidadEmpleadosPorPais());
-        return "/Search/salario";
-    }
-
 
     @GetMapping(value = "/Filtro2")//falta implementar
     public String reporteSalarioMaximoPorDepar (Model model){
@@ -52,10 +55,9 @@ public class SearchController {
         return "/Search/salario";
     }
 
-
     @GetMapping("/listar")//falta implementar
-    public String listarEmpleadoDep(Model model) {//falta query
-        model.addAttribute("listarEmpleadoDep", employeesRepository.listarEmpleadoDep());
+    public String listarEmpleadoDep(@RequestParam("depId") int depId,Model model) {
+        model.addAttribute("listarEmpleadoDep", employeesRepository.findByDepartment_id(depId));
         return "/Search/lista3";
     }
 
