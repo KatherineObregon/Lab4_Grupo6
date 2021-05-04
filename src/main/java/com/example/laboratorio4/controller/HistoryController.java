@@ -15,7 +15,7 @@ public class HistoryController {
 
     @GetMapping(value = {"","/"})
     public String historialEmpleado(Model model){
-        model.addAttribute("lista", historyRepository.listaEmpleadosMayorSalario());
+        model.addAttribute("listaHistorial", historyRepository.listaEmpleadosMayorSalario());
         return "history/lista";
 
     }
