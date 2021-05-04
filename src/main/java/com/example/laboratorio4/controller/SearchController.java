@@ -31,10 +31,9 @@ public class SearchController {
         return "Search/lista2";
     }
 
-
-    @PostMapping("/busqueda")
-    public String buscar (@RequestParam("textBuscador") String textBuscador, Model model){
-        model.addAttribute("listaEmpleadosMayorSalario", employeesRepository.buscarInputBuscador(textBuscador));
+    @PostMapping("/busqueda") //falta validar que ingrese numeros
+    public String buscar (@RequestParam("textBuscador") String textBuscador, Model model){ //falta query
+        model.addAttribute("listaEmpleadosMayorSalario", historyRepository.buscarInputBuscador(textBuscador));
         model.addAttribute("texto", textBuscador);
         return "Search/lista2";
     }
@@ -47,15 +46,15 @@ public class SearchController {
     }
 
 
-    @GetMapping(value = "/Filtro2")
-    public String reporteSalarioMaximoPorDepar (Model model){
+    @GetMapping(value = "/Filtro2")//falta implementar
+    public String reporteSalarioMaximoPorDepar (Model model){//falta query
         model.addAttribute("reporteSalarioMaximoPorDepar", departmentsRepository.reporteSalarioMaximoPorDepar());
         return "/Search/salario";
     }
 
 
-    @GetMapping("/listar")
-    public String listarEmpleadoDep(Model model) {
+    @GetMapping("/listar")//falta implementar
+    public String listarEmpleadoDep(Model model) {//falta query
         model.addAttribute("listarEmpleadoDep", employeesRepository.listarEmpleadoDep());
         return "/Search/lista3";
     }
