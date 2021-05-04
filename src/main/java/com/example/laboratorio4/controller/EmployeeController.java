@@ -111,10 +111,6 @@ public class EmployeeController {
 
     }
 
-    @PostMapping("/search")
-    public String buscar (){
 
-        return "nada";
-    }
 
 }
