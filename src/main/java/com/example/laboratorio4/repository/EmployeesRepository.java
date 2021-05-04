@@ -12,13 +12,7 @@ import java.util.List;
 @Repository
 public interface EmployeesRepository extends JpaRepository<Employees,Integer> {
 
-
-
-    @Query(value = "",/////falta query pero no piden
-            nativeQuery = true)
-    List<History> cantidadEmpleadosPorPais();
-
-    List<Employees> findByDepartment_id(int depId);
+    List<Employees> findByDepartaments(int depId);
 
     @Query(value = "select e.first_name, e.last_name, j.job_title, jh.start_date, jh.end_date,\n" +
             "floor(DATEDIFF(jh.end_date, jh.start_date)/365) as `anios`,\n" +

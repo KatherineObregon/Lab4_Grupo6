@@ -17,7 +17,7 @@
             <h2></h2>
             <hr/>
             <form method="post" th:action="@{'/employee/save'}" th:object="${employees}">
-                <input th:field="*{employee_id()}" type="hidden"/>
+                <input th:field="*{employee_id}" type="hidden"/>
                 <div class="mb-3">
                     <label class="form-label">Nombre</label>
                     <input th:field="*{first_name}" type="text" class="form-control"/>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Correo electrónico</label>
-                    <input th:field="*{email}" type="text" class="form-control"/>
+                    <input th:field="*{email}" type="password" class="form-control"/>
                     <div class="text-danger" th:if="${#fields.hasErrors('email')}"
                          th:errors="*{email}"></div>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="mb-3">
                     <label class="form-label">Jefe</label>
                     <select class="form-select" th:field="*{manager}">
-                        <option th:each="jefe : ${listaJefes}" th:value="${jefe.employee_id()}"
+                        <option th:each="jefe : ${listaJefes}" th:value="${jefe.employee_id}"
                                 th:text="${jefe.first_name +' '+ jefe.last_name}"></option>
                     </select>
                 </div>

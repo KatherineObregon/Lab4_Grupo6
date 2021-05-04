@@ -57,7 +57,7 @@ public class SearchController {
 
     @GetMapping("/listar")//falta implementar
     public String listarEmpleadoDep(@RequestParam("depId") int depId,Model model) {
-        model.addAttribute("listarEmpleadoDep", employeesRepository.findByDepartment_id(depId));
+        model.addAttribute("listarEmpleadoDep", employeesRepository.findByDepartaments(depId));
         return "/Search/lista3";
     }
 
