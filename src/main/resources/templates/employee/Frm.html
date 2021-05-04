@@ -12,83 +12,106 @@
 <div class="container">
 
     <div class="row mb-4">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-12 offset-md">
             <h2 th:text="${employees.getEmployee_id() == 0? 'Nuevo empleado' : 'Editar empleado'}"></h2>
             <h2></h2>
             <hr/>
             <form method="post" th:action="@{'/employee/save'}" th:object="${employees}">
                 <input th:field="*{employee_id}" type="hidden"/>
 
-                <div class="form-horizontal">
-                    <div class="col-auto">
-                        <div class="mb-3">
-                            <label class="form-label">Nombre</label>
-                            <input th:field="*{first_name}" type="text" class="form-control"/>
-                            <div class="text-danger" th:if="${#fields.hasErrors('first_name')}"
-                                 th:errors="*{first_name}"></div>
-                        </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Correo electrónico</label>
-                            <input th:field="*{email}" type="text" class="form-control"/>
-                            <div class="text-danger" th:if="${#fields.hasErrors('email')}"
-                                 th:errors="*{email}"></div>
-                        </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-2 mb-sm-0">
 
-
-                        <div class="mb-3">
-                            <label class="form-label">Cargo</label>
-                            <select class="form-control" th:field="*{jobs}">
-                                <option th:each="job : ${listaJobs}" th:value="${job.getJobid()}"
-                                        th:text="${job.getJobtitle()}"></option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Jefe</label>
-                            <select class="form-control" th:field="*{manager}">
-                                <option th:each="jefe : ${listaJefes}" th:value="${jefe.employee_id}"
-                                        th:text="${jefe.first_name +' '+ jefe.last_name}"></option>
-                            </select>
-                        </div>
-
-
+                        <label class="form-label">Nombre</label>
+                        <input th:field="*{first_name}" type="text" class="form-control"/>
+                        <div class="text-danger" th:if="${#fields.hasErrors('first_name')}"
+                             th:errors="*{first_name}"></div>
 
                     </div>
-                    <div class="col-auto">
-
-                        <div class="mb-3">
-                            <label class="form-label">Apellido</label>
-                            <input th:field="*{last_name}" type="text" class="form-control"/>
-                            <div class="text-danger" th:if="${#fields.hasErrors('last_name')}"
-                                 th:errors="*{last_name}"></div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Contraseña</label>
-                            <input th:field="*{password}" type="password" class="form-control"/>
-                            <div class="text-danger" th:if="${#fields.hasErrors('password')}"
-                                 th:errors="*{password}"></div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Sueldo</label>
-                            <input th:field="*{salary}" type="text" class="form-control"/>
-                            <div class="text-danger" th:if="${#fields.hasErrors('salary')}"
-                                 th:errors="*{salary}"></div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Departamento</label>
-                            <select class="form-control" th:field="*{departaments}">
-                                <option th:each="dep : ${listaDepartments}" th:value="${dep.getId()}"
-                                        th:text="${dep.getDepartmentname()}"></option>
-                            </select>
-                        </div>
+                    <div class="col-sm-6 mb-2">
+                        <label class="form-label">Apellido</label>
+                        <input th:field="*{last_name}" type="text" class="form-control"/>
+                        <div class="text-danger" th:if="${#fields.hasErrors('last_name')}"
+                             th:errors="*{last_name}"></div>
 
                     </div>
-
                 </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-2 mb-sm-0">
+                        <label class="form-label">Correo electrónico</label>
+                        <input th:field="*{email}" type="text" class="form-control"/>
+                        <div class="text-danger" th:if="${#fields.hasErrors('email')}"
+                             th:errors="*{email}"></div>
+
+
+
+                    </div>
+                    <div class="col-sm-6 mb-2">
+                        <label class="form-label">Contraseña</label>
+                        <input th:field="*{password}" type="password" class="form-control"/>
+                        <div class="text-danger" th:if="${#fields.hasErrors('password')}"
+                             th:errors="*{password}"></div>
+
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-2 mb-sm-0">
+
+                        <label class="form-label">Cargo</label>
+                        <select class="form-control" th:field="*{jobs}">
+                            <option th:each="job : ${listaJobs}" th:value="${job.getJobid()}"
+                                    th:text="${job.getJobtitle()}"></option>
+                        </select>
+
+
+                    </div>
+                    <div class="col-sm-6 mb-2">
+
+                        <label class="form-label">Sueldo</label>
+                        <input th:field="*{salary}" type="text" class="form-control"/>
+                        <div class="text-danger" th:if="${#fields.hasErrors('salary')}"
+                             th:errors="*{salary}"></div>
+
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-2 mb-sm-0">
+                        <label class="form-label">Jefe</label>
+                        <select class="form-control" th:field="*{manager}">
+                            <option th:each="jefe : ${listaJefes}" th:value="${jefe.employee_id}"
+                                    th:text="${jefe.first_name +' '+ jefe.last_name}"></option>
+                        </select>
+
+
+                    </div>
+                    <div class="col-sm-6 mb-2">
+
+
+
+                        <label class="form-label">Departamento</label>
+                        <select class="form-control" th:field="*{departaments}">
+                            <option th:each="dep : ${listaDepartments}" th:value="${dep.getId()}"
+                                    th:text="${dep.getDepartmentname()}"></option>
+                        </select>
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <a th:href="@{'/employee'}" class="btn btn-danger">Cancelar</a>
                 <button type="submit" class="btn btn-primary" th:text="${employees.getEmployee_id() == 0? 'Registrar' : 'Actualizar'}">Reg/act</button>
