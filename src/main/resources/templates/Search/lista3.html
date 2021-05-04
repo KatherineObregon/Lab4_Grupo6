@@ -13,10 +13,43 @@
         <h1>Empleados por Departamento</h1>
             <table class="table">
                 <thead>
-                <!-- COMPLETAR -->
+                <th >
+                    ID
+                </th>
+
+                <th >
+                    Nombre
+                </th>
+
+                <th >
+                    Apellido
+                </th>
+
+                <th >
+                    Cargo
+                </th>
+
+                <th >
+                    Sueldo
+                </th>
+
+                <th >
+                </th>
+
                 </thead>
                 <tbody>
-                <!-- COMPLETAR -->
+                <tr th:each="employee : ${listarEmpleadoDep}">
+
+                    <th th:text="${employee.getEmployee_id()}">1</th>
+                    <th th:text="${employee.getFirst_name()}">1</th>
+                    <td th:text="${employee.getLast_name()}">Mark</td>
+                    <td th:text="${employee.getJobs().getJobtitle()}">Otto</td>
+                    <td th:text="${employee.getSalary()}">@mdo</td>
+                    <td>
+                        <button class="btn btn-primary" type="submit">Editar</button>
+                    </td>
+
+
                 </tr>
                 </tbody>
             </table>
